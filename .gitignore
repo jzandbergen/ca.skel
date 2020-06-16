@@ -1,9 +1,0 @@
-./intermediate/certs/*
-./intermediate/newcerts/*
-./intermediate/crl/*
-./intermediate/csr/*
-./intermediate/private/*
-./certs/*
-./newcerts/*
-./crl/*
-./private/*
