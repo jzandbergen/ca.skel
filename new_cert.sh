@@ -18,3 +18,8 @@ NAME=$(openssl req -in intermediate/csr/${TEMPNAME}.csr.pem  -noout -subject | g
 mv intermediate/private/${TEMPNAME}.key.pem intermediate/private/${NAME}.key.pem
 mv intermediate/csr/${TEMPNAME}.csr.pem intermediate/csr/${NAME}.csr.pem
 unset TEMPNAME
+
+openssl ca -config intermediate/openssl.cnf \
+      -extensions server_cert -days 375 -notext -md sha256 \
+      -in intermediate/csr/${NAME}.csr.pem \
+      -out intermediate/certs/${NAME}.cert.pem
