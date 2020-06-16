@@ -2,6 +2,10 @@
 
 set -ex
 
+# Set proper paths
+sed -i "s@/root/ca@$(pwd)@" openssl.cnf
+sed -i "s@/root/ca/intermediate@$(pwd)/intermediate@" intermediate/openssl.cnf
+
 # Create Root CA private key
 # NOTE: needs user input
 openssl genrsa -aes256 -out private/ca.key.pem 4096
